@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Duck Dash: Edit</title>
+	<link rel="stylesheet" type="text/css" href="/css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="/css/skeleton.css">
+	<style type="text/css">
+
+	html {
+		text-align: center;
+	}
+	</style>
+
+</head>
+<body>
+<h2>Fix This Duck!</h2>
+	<form action="/ducks/<%=duck[0]._id; %>" method="post">
+		<label>Name: <input type="text" name="name" value="<%=duck[0].name; %>"></input></label>
+		<label>Age: <input type="int" name="age" value="<%=duck[0].age; %>"></input></label>
+		<label>Favorite Food: <input type="text" name="food" value="<%=duck[0].food; %>"></input></label>
+		<input type="submit"></input>
+	</form>
+
+	
+	<a href="/"><button class="button button-primary">View All Ducks</button></a>
+
+</body>
+</html>

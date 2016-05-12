@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MESSAGE BOARD</title>
+	<link rel="stylesheet" type="text/css" href="/css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="/css/skeleton.css">
+</head>
+<style type="text/css">
+	.add{
+		background-color: lightgreen;
+	}
+	.edit{
+		background-color: lightblue;
+	}
+	#destroy{
+		background-color: salmon;
+	}
+	.view{
+		background-color: orange;
+	}
+	html{
+		text-align: center;
+	}
+
+	form{
+		/*display: inline;*/
+	}
+
+</style>
+<body>
+	<h2>Message Board</h2>
+	<form action="/message" method="post">
+		<label>Name: <input type="text" name="name"></input></label>
+		<label>Message: <textarea coltype="text" name="message"></textarea></label>
+		<input type="submit" value="Add New Message"></input>
+	</form>
+
+	<!-- <%= messagelist ; %> -->
+	<% for (x in messagelist.reverse()){ %>
+		<h5>Message:</h5>
+		<h7>Name: <%=messagelist[x].name; %></h7>
+		<p>Message: <%= messagelist[x].message; %></p> 
+
+		<h5>Comments:</h5>
+		<% for (y in messagelist[x].comments){ %>
+		<h7>Name: <%=messagelist[x].comments[y].name; %></h7>
+		<p>Comment: <%= messagelist[x].comments[y].comment; %></p> 
+
+		<% } %>
+
+		<form action="/<%= messagelist[x].id; %>/comment" method="post">
+			<label>Name: <input type="text" name="name"></input></label>
+			<label>Comment: <textarea coltype="text" name="comment"></textarea></label>
+			<input type="submit" value="Add New Comment"></input>
+		</form>
+	<hr>
+	<% } %>
+</body>
+</html>
